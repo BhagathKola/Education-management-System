@@ -1,0 +1,30 @@
+{% extends 'admin common.html' %}
+{% load static %}
+{% block admincommon %}
+{% include 'Faculty menu.html' %}
+
+
+</table>
+    <table align="center" border="2" style="color: red">
+    <tr align="center" >
+        <h1 align="center" colspan="8" style="color: darkblue;
+        font-family: 'Times New Roman';
+        text-decoration: underline;font-weight: bold ">Sessions</h1><br>
+        <th > Subject</th>
+        <th >Faculty</th>
+        <th >Date</th>
+        <th >Time</th>
+        <th >Duration</th>
+    </tr>
+     {% for x in detail %}
+        <tr align="center"><th>{{ x.subn }}</th>
+        <th>{{ x.facname }}</th>
+        <th>{{ x.date }}</th>
+        <th>{{ x.time }}</th>
+        <th>{{ x.duration }}</th>
+        </tr>
+
+    {% endfor %}
+    </table>
+
+{% endblock %}
