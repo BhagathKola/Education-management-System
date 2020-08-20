@@ -1,0 +1,34 @@
+{% extends 'admin common.html' %}
+{% load static %}
+{% block admincommon %}
+{% include 'Faculty menu.html' %}
+
+<form action="#" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+</table>
+    <table align="center" border="2" style="color: red">
+    <tr align="center" >
+        <h1 align="center" colspan="8" style="color: darkblue;
+        font-family: 'Times New Roman';
+        text-decoration: underline;font-weight: bold ">Sessions</h1><br>
+        <th>Student ID</th>
+        <th > Student Name</th>
+        <th >Subject</th>
+        <th >Date and Time</th>
+        <th >Assignment</th>
+
+    </tr>
+     {% for x in data %}
+        <tr align="center"><th>{{ x.student_reg.sno }}</th>
+        <th>{{ x.student_reg.sname }}</th>
+        <th>{{ x.Subject }}</th>
+        <th>{{ x.date }}</th>
+
+        <th><a href="{{ x.submit.url }}" >Download</a></th>
+
+        </tr>
+
+    {% endfor %}
+    </table>
+</form>
+{% endblock %}

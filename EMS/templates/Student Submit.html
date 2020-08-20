@@ -1,12 +1,13 @@
-{% extends 'admin common.html' %}
+{%  extends 'common.html' %}
+{% load static %}
+{% block common %}
 
-{% block admincommon %}
+    {% include 'student menu.html' %}
 
-    {% include 'Faculty menu.html' %}
 
 
     <br><br><br><br>
-    <form action="{% url 'saveAssign' %}" method="post" enctype="multipart/form-data">
+    <form action="{% url 'saveDB' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <table align="center">
 
@@ -15,35 +16,36 @@
             <h3 align="center" style="color: black;font-weight: bold">Assignment Upload</h3>
         </tr>
         <tr>
+            <tr>
+         <th>
+             <input type="text" value="{{ data.sno}}" name="a1" hidden>
+         </th>
+     </tr>
             <th>
                 <label for="Subject">Subject</label>
                 <input type="text" class="form-control" id="subject" placeholder="Enter subject" name="t1">
             </th>
         </tr>
+    <!--
         <tr>
             <th>
                 <label for="Date">Submission Date</label>
-                <input type="date" class="form-control" id="date" placeholder="Date" name="t2">
+                <input type="date" class="form-control" id="date"  placeholder="Date" name="t2">
             </th>
         </tr>
+        -->
           <tr>
         <th>
-            <label for="timetable">Assignment</label>
+            <label for="Assignment">Assignment</label>
             <input type="file" class="form-control" id="fileupload"  name="t3">
         </th>
     </tr>
         <tr align="center">
             <th>
                 <br/>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" name="t4">Submit</button>
             </th></tr>
-       <tr>
-        <th>
-        <h4>
-            <a href="{% url 'subassign' %}" style="color: black;font-weight: bold">Submitted Assignments?</a>
-        </h4>
-        </th>
-    </tr>
+
              {% if msg %}
                 <tr align="center" style="color: red">
                 <th>{{ msg }}</th>
@@ -51,9 +53,6 @@
             {% endif %}
      </table>
      </form><br><br><br><br>
-
-
-
 
 
 {% endblock %}
