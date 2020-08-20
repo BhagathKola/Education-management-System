@@ -1,0 +1,37 @@
+{% extends 'admin common.html' %}
+{% load static %}
+{% block admincommon %}
+{% include 'admin mainmenu.html' %}
+
+
+</table>
+    <table align="center" border="2" style="color: red">
+    <tr align="center" >
+        <h1 align="center" colspan="8" style="color: darkblue;
+        font-family: 'Times New Roman';
+        text-decoration: underline;font-weight: bold ">Faculty</h1><br>
+        <th > Faculty Name</th>
+        <th >User name</th>
+        <th >Email-Id</th>
+        <th >Department</th>
+         <th>Contact No.</th>
+         <th>Delete</th>
+    </tr>
+     {% for x in faculty %}
+        <tr align="center"><th>{{ x.fname }}</th>
+        <th>{{ x.uname }}</th>
+        <th>{{ x.email }}</th>
+        <th>{{ x.dept }}</th>
+        <th>{{ x.contact }}</th>
+        <th>
+            <a href="{% url 'fdelete' %}?del={{ x.fno }}">
+            <img src='{% static 'images/delete.png' %}' width="30px" height="20px"></a>
+        </th>
+        </tr>
+
+        </tr>
+
+    {% endfor %}
+    </table>
+
+{% endblock %}

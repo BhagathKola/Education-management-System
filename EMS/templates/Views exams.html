@@ -1,0 +1,33 @@
+{% extends 'common.html' %}
+{% load static %}
+{% block common %}
+{% include 'mainmenu.html' %}
+
+
+</table>
+    <table align="center" border="2" style="color: red">
+    <tr align="center" >
+        <h1 align="center" colspan="8" style="color: darkblue;
+        font-family: 'Times New Roman';
+        text-decoration: underline;font-weight: bold ">Sessions</h1><br>
+        <th > Semeseter</th>
+        <th >Date</th>
+        <th >Time</th>
+        <th >Fee</th>
+        <th >Duration</th>
+        <th>Time Table</th>
+    </tr>
+     {% for x in exams %}
+        <tr align="center"><th>{{ x.sem }}</th>
+        <th>{{ x.date }}</th>
+        <th>{{ x.time }}</th>
+        <th>{{ x.fee }}</th>
+        <th>{{ x.duration }}</th>
+        <th>{{ x.timetable }}</th>
+
+        </tr>
+
+    {% endfor %}
+    </table>
+
+{% endblock %}

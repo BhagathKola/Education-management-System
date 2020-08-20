@@ -7,7 +7,7 @@
 
 
 </head>
-<form action="#" method="post">
+<form action="{% url 'exams' %}" method="post" enctype="multipart/form-data">
 {% csrf_token %}
 
     <table align="center">
@@ -18,45 +18,44 @@
     <tr>
         <th>
             <label for="name">Semester</label>
-               <select name="cars" class="form-control" id="cars">
-                 <option value="volvo">Volvo</option>
-                 <option value="saab">Saab</option>
-                 <option value="mercedes">Mercedes</option>
-                 <option value="audi">Audi</option>
+               <select name="t1" class="form-control" id="cars">
+                 <option value="1st Year">1st Year</option>
+                 <option value="2nd Year">2nd Year</option>
+                 <option value="3rd Year">3rd Year</option>
+                 <option value="4th Year">4th Year</option>
             </select>
         </th>
     </tr>
      <tr>
         <th>
-            <label for="name">Faculty Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Name" name="t2">
-        </th>
-    </tr>
-     <tr>
-        <th>
             <label for="date">Date</label>
-            <input type="date" class="form-control" id="date" placeholder="Date" name="t3">
+            <input type="date" class="form-control" id="date" placeholder="Date" name="t2">
         </th>
     </tr>
     <tr>
         <th>
             <label for="time">Time</label>
-            <input type="time" class="form-control" id="time" placeholder="Time" name="t4">
+            <input type="time" class="form-control" id="time" placeholder="Time" name="t3">
         </th>
     </tr>
     <tr>
         <th>
             <label for="fee">Fee</label>
-            <input type="number" class="form-control" id="fee" placeholder="Enter Fee" name="t5">
+            <input type="number" class="form-control" id="fee" placeholder="Enter Fee" name="t4">
         </th>
     </tr>
     <tr>
         <th>
             <label for="duration">Duration</label>
-            <input type="text" class="form-control" id="duration" placeholder="Enter Duration" name="t6">
+            <input type="text" class="form-control" id="duration" placeholder="Enter Duration" name="t5">
         </th>
     </tr>
-
+    <tr>
+        <th>
+            <label for="timetable">Time Table</label>
+            <input type="file" class="form-control" id="fileupload"  name="t6">
+        </th>
+    </tr>
     <tr align="center">
         <th>
             <br/>
