@@ -1,0 +1,32 @@
+{% extends 'common.html' %}
+{% load static %}
+{% block common %}
+{% include 'student menu.html' %}
+
+<form action="#" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+</table>
+    <table align="center" border="2" style="color: red">
+    <tr align="center" >
+        <h1 align="center" colspan="8" style="color: darkblue;
+        font-family: 'Times New Roman';
+        text-decoration: underline;font-weight: bold ">Assignmennts</h1><br>
+        <th > No.</th>
+        <th >Subject</th>
+        <th >Submission Date</th>
+        <th>Assignment</th>
+
+    </tr>
+     {% for x in asg %}
+        <tr align="center" style="color: black"><th>{{ x.ano }}</th>
+        <th>{{ x.subject }}</th>
+        <th>{{ x.date }}</th>
+
+        <th><a href="{{ x.assign.url }}" >Download</a></th>
+
+        </tr>
+
+    {% endfor %}
+    </table>
+</form>
+{% endblock %}

@@ -3,7 +3,8 @@
 {% block common %}
 {% include 'mainmenu.html' %}
 
-
+<form action="#" method="post" enctype="multipart/form-data">
+{% csrf_token %}
 </table>
     <table align="center" border="2" style="color: red">
     <tr align="center" >
@@ -23,11 +24,11 @@
         <th>{{ x.time }}</th>
         <th>{{ x.fee }}</th>
         <th>{{ x.duration }}</th>
-        <th>{{ x.timetable }}</th>
+        <th><a href="{{ x.timetable.url }}" >Download</a></th>
 
         </tr>
 
     {% endfor %}
     </table>
-
+</form>
 {% endblock %}
